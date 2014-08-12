@@ -34,6 +34,13 @@ const byte stopPin = 7;
 byte greenLedPin = 8;
 byte redLedPin = 9;
 
+// Analogue levels for buttons on LED sheild
+const unsigned int cVoltageRight = 0;
+const unsigned int cVoltageUp = 145;
+const unsigned int cVoltageDown = 329;
+const unsigned int cVoltageLeft = 505;
+const unsigned int cVoltageSelect = 741;
+
 Sonos *sonos;
 Button *buttons[noOfButtons];
 Button *stopButton;
@@ -54,7 +61,7 @@ void setup() {
   
   redLedOn();
   
-  // Initalise buttons
+  // Initalise digital buttons
   for(int _b=0; _b<noOfButtons; _b++) {
     Button *_button = new Button(buttonPins[_b]); 
     _button->turnOnPullUp();

@@ -5,11 +5,25 @@ Button::Button(byte pin) {
   _shortClick = 35;
   _longClick = 400;
   
+  _pinInputType = Digital;
   _pin = pin;
   pinMode(_pin, INPUT);
   
   _lastEventTime = 0;
   _lastEventType = Unknown;
+}
+
+Button::Button(uint8_t pin, unsigned int Level)
+{
+	_shortClick = 35;
+	_longClick = 400;
+
+	_pinInputType = Analogue;
+	_pin = pin;
+	pinMode(_pin, INPUT);
+
+	_lastEventTime = 0;
+	_lastEventType = Unknown;
 }
 
 void Button::turnOnPullUp() {
